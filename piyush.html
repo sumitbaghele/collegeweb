@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>about</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3a31e0;
+            --secondary-color: #800080;
+            --text-dark: #222;
+            --text-light: #555;
+            --background-light: #f5f5f5;
+            --white: #fff;
+        }
+
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--background-light);
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: var(--white);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 20px;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar li {
+            margin: 0 20px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: var(--primary-color);
+        }
+
+        /* About Section */
+        .about-section {
+            display: flex;
+            gap: 30px;
+            padding: 40px;
+            background-color: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 60px;
+            transition: transform 0.3s ease;
+        }
+
+        .about-section:hover {
+            transform: translateY(-5px);
+        }
+
+        .about-section .text-content {
+            flex: 1;
+        }
+
+        .about-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .about-section p {
+            margin-bottom: 25px;
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .about-section .points {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .about-section .point {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+            transition: transform 0.3s ease;
+        }
+
+        .about-section .point:hover {
+            transform: translateX(10px);
+        }
+
+        .about-section .icon {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+        }
+
+        .about-section .details h3 {
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .about-section .details p {
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+
+        .about-section .images {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            flex: 1;
+        }
+
+        .about-section .images img {
+            width: 100%;
+            height: 300px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .about-section .images img:hover {
+            transform: scale(1.05);
+        }
+
+        /* History Section */
+        .history-section {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 60px;
+        }
+
+        .history-section h1,
+        .history-section h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            text-align: center;
+        }
+
+        .timeline-path {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            height: 80%;
+            z-index: 0;
+        }
+
+        .timeline-item {
+            position: absolute;
+            z-index: 10;
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: scale(1.1);
+        }
+
+        .item-2004 {
+            top: 25%;
+            left: 8%;
+        }
+
+        .item-2010 {
+            top: 48%;
+            left: 35%;
+        }
+
+        .item-2015 {
+            top: 10%;
+            left: 70%;
+        }
+
+        .item-2018 {
+            top: 65%;
+            left: 78%;
+        }
+
+        .item-2020 {
+            top: 73%;
+            left: 55%;
+        }
+
+        .item-2023 {
+            top: 68%;
+            left: 25%;
+        }
+
+        .item-2024 {
+            top: 80%;
+            left: 5%;
+        }
+
+        .history-section .mobile-timeline {
+            display: none;
+        }
+
+        /* Mission Section */
+        .mission-section {
+            display: flex;
+            gap: 30px;
+            padding: 40px;
+            background-color: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 60px;
+            width: 100%;
+            align-items: center;
+        }
+
+        .mission-text {
+
+            padding-right: 20px;
+        }
+
+        .mission-text h1 {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+
+        .mission-text p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .mission-text ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .mission-text li {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .mission-text .dot {
+            color: var(--secondary-color);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .mission-image .image-box {
+
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/600x400?text=W44.jpg');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            position: relative;
+            left: 0px;
+            top: 0;
+
+        }
+
+        .mission-image .image-box img {
+            width: 100%;
+            height: 300px;
+            border-radius: 12px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .mission-image .image-box h2 {
+            font-size: 1.8rem;
+            margin: 10px 0;
+        }
+
+        .mission-image .image-box p {
+            font-size: 1rem;
+        }
+
+        /* Accreditations Section */
+        .accreditations-section {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .accreditations-section h1 {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .accreditations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .accreditation-item {
+            background-color: #e6ffe6;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .accreditation-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .accreditation-item h3 {
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .accreditation-item p {
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            .navbar ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .navbar li {
+                margin: 10px 0;
+            }
+
+            .about-section,
+            .mission-section {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .about-section .images img,
+            .mission-image .image-box img {
+                height: 200px;
+            }
+
+            .history-section .desktop-timeline {
+                display: none;
+            }
+
+            .history-section .mobile-timeline {
+                display: block;
+            }
+
+            .history-section .mobile-timeline .timeline-item {
+                position: relative;
+                padding-left: 50px;
+                margin-bottom: 30px;
+            }
+
+            .history-section .mobile-timeline .icon-circle {
+                position: absolute;
+                left: 0;
+                top: 0;
+                background: var(--white);
+                padding: 12px;
+                border-radius: 50%;
+                border: 2px solid #ddd;
+            }
+
+            .mission-image .image-box {
+                background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/600x400?text=W44.jpg');
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#history">History</a></li>
+            <li><a href="#mission">Mission</a></li>
+            <li><a href="#accreditations">Accreditations</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="text-content">
+                <h1>Creating Industry-Ready Graduates</h1>
+                <p>Prepare for success with our industry-focused programs designed to produce graduates ready to excel
+                    in today’s competitive job market.</p>
+                <div class="points">
+                    <div class="point">
+                        <span class="icon" aria-hidden="true">📘</span>
+                        <div class="details">
+                            <h3>35k+ Students Enrolled</h3>
+                            <p>Whether you’re pursuing your passions, advancing your career, or exploring new
+                                opportunities, our vibrant campus offers endless possibilities for growth, learning, and
+                                discovery.</p>
+                        </div>
+                    </div>
+                    <div class="point">
+                        <span class="icon" aria-hidden="true">🏆</span>
+                        <div class="details">
+                            <h3>20 Years of Quality Academics</h3>
+                            <p>For over two decades, we’ve been committed to delivering excellence in education.</p>
+                        </div>
+                    </div>
+                    <div class="point">
+                        <span class="icon" aria-hidden="true">🎖️</span>
+                        <div class="details">
+                            <h3>16 Accreditations & Awards</h3>
+                            <p>Our commitment to quality education and institutional excellence has been recognized
+                                through numerous accolades and accreditations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="images">
+                <img src="piyush2.jpg" alt="Campus Image 1"
+                    onerror="this.src='https://via.placeholder.com/600x300?text=W11.jpg'">
+                <img src="piyush4.jpg" alt="Campus Image 2"
+                    onerror="this.src='https://via.placeholder.com/600x300?text=W22.png'">
+            </div>
+        </section>
+
+        <!-- History Section -->
+        <section id="history" class="history-section">
+            <div class="mb-12 text-center">
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-800">The Flashback to</h1>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-800">dhote bandhu science College's
+                    History</h2>
+            </div>
+            <div class="desktop-timeline">
+                <div class="relative h-[600px]">
+                    <svg class="timeline-path" preserveAspectRatio="none" viewBox="0 0 800 400"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M50 100 C 150 200, 250 200, 350 200 C 500 200, 550 50, 650 50 C 750 50, 750 300, 650 300 C 550 300, 450 350, 350 350 C 250 350, 150 250, 100 250 C 50 250, 50 350, 100 350"
+                            fill="none" stroke="#9CA3AF" stroke-width="2" stroke-dasharray="8, 8" />
+                    </svg>
+                    <div class="timeline-item item-2004">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="bg-white p-3 rounded-full border-2 border-gray-300 mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="#4B5563" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+                                    <line x1="4" y1="22" x2="4" y2="15"></line>
+                                </svg>
+                            </div>
+                            <p class="font-bold text-gray-700">2004 A.D</p>
+                            <p class="text-sm text-gray-500 max-w-[200px]">The college was founded with the motivation
+                                of fostering sharp minded individuals and quality education.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item item-2010">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="bg-white p-3 rounded-full border-2 border-gray-300 mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#4B5563"
+                                    viewBox="0 0 256 256">
+                                    <path
+                                        d="M224,88a8,8,0,0,1-8,8H184V64a8,8,0,0,1-16,0V40h-8a8,8,0,0,1,0-16h8a24,24,0,0,1,24,24V80h32A8,8,0,0,1,224,88ZM216,136H40a8,8,0,0,0-8,8v48a8,8,0,0,0,8,8H52.48l-6.12,24.48A8,8,0,0,0,44,232a8.09,8.09,0,0,0,7.64-5.53L63,197.55,74.36,226.47A8.09,8.09,0,0,0,82,232a8,8,0,0,0,7.64-11.53L81.52,200H174.48l-8.12,28.47A8,8,0,0,0,174,232a8.09,8.09,0,0,0,7.64-5.53L193,197.55,204.36,226.47A8.09,8.09,0,0,0,212,232a8,8,0,0,0,7.64-11.53L211.52,200H216a8,8,0,0,0,8-8V144A8,8,0,0,0,216,136Z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <p class="font-bold text-gray-700">2010 A.D</p>
+                            <p class="text-sm text-gray-500 max-w-[200px]">Reached the milestone of enrolling 10k
+                                students.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item item-2015">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="bg-white p-3 rounded-full border-2 border-gray-300 mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#4B5563"
+                                    viewBox="0 0 256 256">
+                                    <path
+                                        d="M224,88H152V64a24,24,0,0,0-48,0V88H32a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H224a8,8,0,0,0,8-8V96A8,8,0,0,0,224,88Zm-88,40a20,20,0,1,1,20,20A20,20,0,0,1,136,128ZM120,88V64a8,8,0,0,1,16,0V88Z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <p class="font-bold text-gray-700">2015 A.D</p>
+                            <p class="text-sm text-gray-500 max-w-[200px]">We got recognitions & awards by Pulitzer
+                                Prizes and National Science Foundation.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item item-2018">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="bg-white p-3 rounded-full border-2 border-gray-300 mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#4B5563"
+                                    viewBox="0 0 256 256">
+                                    <path
+                                        d="M239.82,155.33l-28.46-16.43a20,20,0,0,0-22.72,0l-16.43,9.49a20,20,0,0,1-20,0l-16.43-9.49a20,20,0,0,0-22.72,0L96.63,155.33a20,20,0,0,1-20,0l-16.43-9.49a20,20,0,0,0-22.72,0L9.66,162.27A8,8,0,0,0,8.25,176.6l36.8,63.73a8,8,0,0,0,13.86,0l36.8-63.73a8,8,0,0,0-1.41-9.33l-16.43-28.46a4,4,0,0,1,0-4l16.43-9.49a4,4,0,0,1,4,0l16.43,9.49a4,4,0,0,0,4,0l16.43-9.49a4,4,0,0,1,4,0l16.43,9.49a4,4,0,0,0,4,0l16.43-9.49a4,4,0,0,1,4.54,0l16.43,28.46a8,8,0,0,0-1.41,9.33l36.8,63.73a8,8,0,0,0,13.86,0l36.8-63.73a8,8,0,0,0-1.41-14.33ZM192,92a68,68,0,1,0-76,67.14V172a12,12,0,0,0,24,0v-12.86A68.06,68.06,0,0,0,192,92Zm-68,52a52,52,0,1,1,52-52A52.06,52.06,0,0,1,124,144Z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <p class="font-bold text-gray-700">2018 A.D</p>
+                            <p class="text-sm text-gray-500 max-w-[200px]">Introduction of two new programs - Networking
+                                & Cyber Security and Multimedia.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item item-2020">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="bg-white p-3 rounded-full border-2 border-gray-300 mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#4B5563"
+                                    viewBox="0 0 256 256">
+                                    <path
+                                        d="M224,88a8,8,0,0,1-8,8H184V64a8,8,0,0,1-16,0V40h-8a8,8,0,0,1,0-16h8a24,24,0,0,1,24,24V80h32A8,8,0,0,1,224,88ZM216,136H40a8,8,0,0,0-8,8v48a8,8,0,0,0,8,8H52.48l-6.12,24.48A8,8,0,0,0,44,232a8.09,8.09,0,0,0,7.64-5.53L63,197.55,74.36,226.47A8.09,8.09,0,0,0,82,232a8,8,0,0,0,7.64-11.53L81.52,200H174.48l-8.12,28.47A8,8,0,0,0,174,232a8.09,8.09,0,0,0,7.64-5.53L193,197.55,204.36,226.47A8.09,8.09,0,0,0,212,232a8,8,0,0,0,7.64-11.53L211.52,200H216a8,8,0,0,0,8-8V144A8,8,0,0,0,216,136Z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <p class="font-bold text-gray-700">2020 A.D</p>
+                            <p class="text-sm text-gray-500 max-w-[200px]">Reached the milestone of enrolling 30k
+                                students.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item item-2023">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="bg-white p-3 rounded-full border-2 border-gray-300 mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#4B5563"
+                                    viewBox="0 0 256 256">
+                                    <path
+                                        d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32Zm-48,96a20,20,0,1,1-20-20A20,20,0,0,1,160,128Z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <p class="font-bold text-gray-700">2023 A.D</p>
+                            <p class="text-sm text-gray-500 max-w-[200px]">With the advancements in Artificial
+                                Intelligence in everyday life the college established an AI & ML research lab.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item item-2024">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="bg-white p-3 rounded-full border-2 border-gray-300 mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#4B5563"
+                                    viewBox="0 0 256 256">
+                                    <path
+                                        d="M221.7,117.39l-42.33,21.16L200.53,181a8,8,0,0,1-14,8.12l-21.16-42.33-42.34,21.17a8,8,0,0,1-8.12-14L157.2,112,114.86,70.83a8,8,0,0,1,8.12-14l42.34,21.17,21.16-42.33a8,8,0,0,1,14,8.12l-21.16,42.33L221.7,98.27a8,8,0,1,1-8.12,14ZM112,64A48,48,0,1,0,64,112,48.05,48.05,0,0,0,112,64Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,112,144Z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <p class="font-bold text-gray-700">2024 A.D</p>
+                            <p class="text-sm text-gray-500 max-w-[200px]">The college celebrated its 20th anniversary.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-timeline">
+                <div class="space-y-12 border-l-2 border-dashed border-gray-300 ml-4">
+                    <div class="timeline-item">
+                        <div class="icon-circle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="#4B5563" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+                                <line x1="4" y1="22" x2="4" y2="15"></line>
+                            </svg>
+                        </div>
+                        <p class="font-bold text-gray-700">2004 A.D</p>
+                        <p class="text-sm text-gray-500 mt-1">The college was founded with the motivation of fostering
+                            sharp minded individuals and quality education.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="icon-circle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#4B5563"
+                                viewBox="0 0 256 256">
+                                <path
+                                    d="M224,88a8,8,0,0,1-8,8H184V64a8,8,0,0,1-16,0V40h-8a8,8,0,0,1,0-16h8a24,24,0,0,1,24,24V80h32A8,8,0,0,1,224,88ZM216,136H40a8,8,0,0,0-8,8v48a8,8,0,0,0,8,8H52.48l-6.12,24.48A8,8,0,0,0,44,232a8.09,8.09,0,0,0,7.64-5.53L63,197.55,74.36,226.47A8.09,8.09,0,0,0,82,232a8,8,0,0,0,7.64-11.53L81.52,200H174.48l-8.12,28.47A8,8,0,0,0,174,232a8.09,8.09,0,0,0,7.64-5.53L193,197.55,204.36,226.47A8.09,8.09,0,0,0,212,232a8,8,0,0,0,7.64-11.53L211.52,200H216a8,8,0,0,0,8-8V144A8,8,0,0,0,216,136Z">
+                                </path>
+                            </svg>
+                        </div>
+                        <p class="font-bold text-gray-700">2010 A.D</p>
+                        <p class="text-sm text-gray-500 mt-1">Reached the milestone of enrolling 10k students.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="icon-circle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#4B5563"
+                                viewBox="0 0 256 256">
+                                <path
+                                    d="M224,88H152V64a24,24,0,0,0-48,0V88H32a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H224a8,8,0,0,0,8-8V96A8,8,0,0,0,224,88Zm-88,40a20,20,0,1,1,20,20A20,20,0,0,1,136,128ZM120,88V64a8,8,0,0,1,16,0V88Z">
+                                </path>
+                            </svg>
+                        </div>
+                        <p class="font-bold text-gray-700">2015 A.D</p>
+                        <p class="text-sm text-gray-500 mt-1">We got recognitions & awards by Pulitzer Prizes and
+                            National Science Foundation.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="icon-circle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#4B5563"
+                                viewBox="0 0 256 256">
+                                <path
+                                    d="M239.82,155.33l-28.46-16.43a20,20,0,0,0-22.72,0l-16.43,9.49a20,20,0,0,1-20,0l-16.43-9.49a20,20,0,0,0-22.72,0L96.63,155.33a20,20,0,0,1-20,0l-16.43-9.49a20,20,0,0,0-22.72,0L9.66,162.27A8,8,0,0,0,8.25,176.6l36.8,63.73a8,8,0,0,0,13.86,0l36.8-63.73a8,8,0,0,0-1.41-9.33l-16.43-28.46a4,4,0,0,1,0-4l16.43-9.49a4,4,0,0,1,4,0l16.43,9.49a4,4,0,0,0,4,0l16.43-9.49a4,4,0,0,1,4,0l16.43,9.49a4,4,0,0,0,4,0l16.43-9.49a4,4,0,0,1,4.54,0l16.43,28.46a8,8,0,0,0-1.41,9.33l36.8,63.73a8,8,0,0,0,13.86,0l36.8-63.73a8,8,0,0,0-1.41-14.33ZM192,92a68,68,0,1,0-76,67.14V172a12,12,0,0,0,24,0v-12.86A68.06,68.06,0,0,0,192,92Zm-68,52a52,52,0,1,1,52-52A52.06,52.06,0,0,1,124,144Z">
+                                </path>
+                            </svg>
+                        </div>
+                        <p class="font-bold text-gray-700">2018 A.D</p>
+                        <p class="text-sm text-gray-500 mt-1">Introduction of two new programs - Networking & Cyber
+                            Security and Multimedia.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="icon-circle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#4B5563"
+                                viewBox="0 0 256 256">
+                                <path
+                                    d="M224,88a8,8,0,0,1-8,8H184V64a8,8,0,0,1-16,0V40h-8a8,8,0,0,1,0-16h8a24,24,0,0,1,24,24V80h32A8,8,0,0,1,224,88ZM216,136H40a8,8,0,0,0-8,8v48a8,8,0,0,0,8,8H52.48l-6.12,24.48A8,8,0,0,0,44,232a8.09,8.09,0,0,0,7.64-5.53L63,197.55,74.36,226.47A8.09,8.09,0,0,0,82,232a8,8,0,0,0,7.64-11.53L81.52,200H174.48l-8.12,28.47A8,8,0,0,0,174,232a8.09,8.09,0,0,0,7.64-5.53L193,197.55,204.36,226.47A8.09,8.09,0,0,0,212,232a8,8,0,0,0,7.64-11.53L211.52,200H216a8,8,0,0,0,8-8V144A8,8,0,0,0,216,136Z">
+                                </path>
+                            </svg>
+                        </div>
+                        <p class="font-bold text-gray-700">2020 A.D</p>
+                        <p class="text-sm text-gray-500 mt-1">Reached the milestone of enrolling 30k students.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="icon-circle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#4B5563"
+                                viewBox="0 0 256 256">
+                                <path
+                                    d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32Zm-48,96a20,20,0,1,1-20-20A20,20,0,0,1,160,128Z">
+                                </path>
+                            </svg>
+                        </div>
+                        <p class="font-bold text-gray-700">2023 A.D</p>
+                        <p class="text-sm text-gray-500 mt-1">With the advancements in Artificial Intelligence in
+                            everyday life the college established an AI & ML research lab.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="icon-circle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#4B5563"
+                                viewBox="0 0 256 256">
+                                <path
+                                    d="M221.7,117.39l-42.33,21.16L200.53,181a8,8,0,0,1-14,8.12l-21.16-42.33-42.34,21.17a8,8,0,0,1-8.12-14L157.2,112,114.86,70.83a8,8,0,0,1,8.12-14l42.34,21.17,21.16-42.33a8,8,0,0,1,14,8.12l-21.16,42.33L221.7,98.27a8,8,0,1,1-8.12,14ZM112,64A48,48,0,1,0,64,112,48.05,48.05,0,0,0,112,64Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,112,144Z">
+                                </path>
+                            </svg>
+                        </div>
+                        <p class="font-bold text-gray-700">2024 A.D</p>
+                        <p class="text-sm text-gray-500 mt-1">The college celebrated its 20th anniversary.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission & Accreditations Section -->
+        <section id="mission" class="mission-section">
+            <div class="mission-text">
+                <h1>Our Mission</h1>
+                <p>The mission of our college revolves around providing undergraduate education and fostering a
+                    supportive environment for students to grow academically, personally, and professionally.</p>
+                <ul>
+                    <li><span class="dot">●</span> Academic Excellence</li>
+                    <li><span class="dot">●</span> Professional Development</li>
+                    <li><span class="dot">●</span> Research and Innovation</li>
+                    <li><span class="dot">●</span> Diversity and Inclusion</li>
+                </ul>
+            </div>
+            <div class="mission-image">
+                <div class="image-box">
+                    <img src="piyush3.jpg" alt="Mission Image"
+                        onerror="this.src='https://via.placeholder.com/600x400?text=W44.jpg'">
+                    <h2>Fostering Talent & Leadership</h2>
+                    <p>To provide high-quality undergraduate education that fosters critical thinking, intellectual
+                        curiosity, and a deep understanding of the chosen field of study.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="accreditations" class="accreditations-section">
+            <h1>Accreditations and Recognitions</h1>
+            <div class="accreditations-grid">
+                <div class="accreditation-item">
+                    <h3>01 National Medal of Computer Science</h3>
+                    <p>Awarded by the President of the United States, this prize recognizes individuals or institutions
+                        for their outstanding contributions to science and technology.</p>
+                </div>
+                <div class="accreditation-item">
+                    <h3>02 National Humanities Medal</h3>
+                    <p>Similar to the National Medal of Science, this medal is awarded for outstanding contributions to
+                        the humanities, including history, literature, philosophy, and cultural studies.</p>
+                </div>
+                <div class="accreditation-item">
+                    <h3>03 National Medal of Technology and Innovation</h3>
+                    <p>Also presented by the President, this medal honors individuals or institutions for their
+                        significant contributions to the advancement of technology in the United States.</p>
+                </div>
+                <div class="accreditation-item">
+                    <h3>04 MacArthur Fellowship</h3>
+                    <p>Four faculty members and two students have received this prestigious grant to support their
+                        creative work.</p>
+                </div>
+                <div class="accreditation-item">
+                    <h3>05 Pulitzer Prizes</h3>
+                    <p>Universities with exceptional journalism programs praise their faculty or students awarded
+                        Pulitzer Prizes for outstanding achievements in journalism, literature, and musical composition.
+                    </p>
+                </div>
+                <div class="accreditation-item">
+                    <h3>06 Association of American Universities (AAU) Awards</h3>
+                    <p>Awarded in 2015 for exceptional contributions to research, education, or public service.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

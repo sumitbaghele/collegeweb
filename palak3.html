@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Computer Science Department</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #eaf2f8;
+        }
+
+        header {
+            background-color: #005b82;
+            color: white;
+            padding: 1rem;
+        }
+
+        .top-nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .top-nav h1 {
+            margin: 0;
+        }
+
+        nav {
+            margin-top: 0.5rem;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        main {
+            padding: 2rem;
+            background-color: #ffffff;
+        }
+
+        .main-news {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            background: white;
+            padding: 2rem;
+            border: 1px solid #ccc;
+        }
+
+        .news-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .news-text h2 {
+            color: #d94100;
+            font-size: 1.8rem;
+            margin-top: 0;
+        }
+
+        .sub-news {
+            margin-top: 1rem;
+        }
+
+        .sub-news p {
+            margin: 0.5rem 0;
+        }
+
+        .sub-news a {
+            color: #003366;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .news-image {
+            margin-left: 2rem;
+        }
+
+        .news-image img {
+            width: 180px;
+            border-radius: 5px;
+        }
+
+        .programs {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .program {
+            flex: 1 1 22%;
+            padding: 1rem;
+            margin: 0.5rem;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            border-radius: 6px;
+            min-width: 200px;
+        }
+
+        .program span {
+            font-weight: normal;
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .intro {
+            background-color: #009688;
+        }
+
+        .undergrad {
+            background-color: #f39c12;
+        }
+
+        .masters {
+            background-color: #e67e22;
+        }
+
+        .phd {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="top-nav">
+            <h1>Department of Humanities & Science</h1>
+            <nav>
+                <pre style="font-weight: bold; font-size: larger;">
+ About   People   Research   Degrees    Courses     Diversity    Giving
+        </pre>
+
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="main-news">
+            <div class="news-text">
+                <h2> Key Aspects of Humanities & Science Department:</h2>
+                <div class="sub-news">
+                    <p>The department lays the groundwork for engineering students by providing them with the necessary
+                        knowledge
+                        in
+                        basic sciences and mathematics. </p>
+
+                </div>
+            </div>
+            <div class="news-image">
+                <img src="2.jpg">
+            </div>
+        </section>
+
+        <section class="programs">
+            <div class="program intro">Interdisciplinary Approach:<br><span>It integrates science and humanities,
+                    offering a
+                    holistic view and fostering interdisciplinary thinking.</span></div>
+            <div class="program undergrad">Skill Development:<br><span>It focuses on developing essential skills like
+                    communication, problem-solving, critical thinking.</span></div>
+            <div class="program masters">Curriculum:<br><span>The curriculum typically includes subjects like
+                    Mathematics,
+                    Physics, Chemistry, English, and sometimes courses.</span></div>
+            <div class="program phd">Faculty:<br><span>It often comprises dedicated faculty members with expertise in
+                    various
+                    scientific and humanities disciplines.</span></div>
+        </section>
+    </main>
+</body>
+
+</html>
